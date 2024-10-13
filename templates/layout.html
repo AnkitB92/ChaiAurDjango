@@ -1,0 +1,30 @@
+{% load static tailwind_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    {% block title %}{% endblock %}
+  </title>
+  <link rel="stylesheet" href="{% static "style.css" %}">
+  {% tailwind_css %}
+</head>
+<body class="bg-gray-900 text-white">
+  <header class="h-16 bg-teal-700 content-center">
+    <p class="text-3xl font-semibold text-center">
+      {% block header %}{% endblock %}
+    </p>
+  </header>
+  <nav class="bg-blue-900 h-12 flex justify-center">
+      <a href="/">Home</a>
+      <a href="/chai">Chai</a>
+      <a href="/admin">Admin</a>
+  </nav>
+
+  <main class="text-center p-4">
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>
