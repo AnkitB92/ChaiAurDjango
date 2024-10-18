@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}Chai{% endblock %}
+
+{% block header %}
+  Chai Page
+{% endblock %}
+
+{% block content %}
+  <p class="text-2xl mb-5 border p-4 rounded-sm">This is Chai page</p>
+
+  <div class=" grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+
+    {% for chai in all_chai %}
+      <div
+        class="flex flex-col overflow-hidden border hover:scale-105 transition-all rounded-sm"
+      >
+        <a href="{% url "chai_details" chai.id %}" class="h-3/4 overflow-hidden mb-1">
+          <img class="h-full w-full" src="{{chai.image.url}}" alt="..">
+        </a>
+
+          <div class="flex flex-col text-left px-3 pt-1 mb-4">
+            <strong class="mb-1">{{chai.name}}</strong>
+
+            <div class="flex items-center gap-1 mb-2.5 text-[13px]">
+              <p class="bg-gray-600 px-1.5 py-0.5">{{chai.type}}</p>
+              <p class="bg-gray-600 px-1.5 py-0.5">{{chai.size}}</p>
+
+              <strong class="bg-blue-900 ml-auto px-2.5 py-1 rounded-lg">
+                &dollar; {{chai.price}}
+              </strong>
+            </div>
+
+            <p class="leading-4">{{chai.description}}</p>
+          </div>
+
+          <div class="px-3 pb-5">
+            <a
+              href="{% url "chai_details" chai.id %}"
+              class="block bg-red-800 py-1 rounded hover:bg-red-700"
+            >
+              View
+            </a>
+          </div>
+
+      </div>
+
+    {% endfor %}
+
+  </div>
+{% endblock %}
