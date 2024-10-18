@@ -9,7 +9,7 @@ class ChaiReviewInline(admin.TabularInline):
 
 
 class ChaiVarietyAdmin(admin.ModelAdmin):
-  list_display = ('name', 'type', 'added_on',)
+  list_display = ('name', 'type', 'added_on', 'price')
   inlines = [ChaiReviewInline]
 
 
